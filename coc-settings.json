@@ -1,0 +1,5 @@
+{
+  "coc.preferences.formatOnSave": true,
+  "diagnostic.checkCurrentLine": true,
+  "snippets.ultisnips.pythonPrompt": false
+}
