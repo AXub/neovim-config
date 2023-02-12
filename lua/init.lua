@@ -28,3 +28,12 @@ require("nvim-tree").setup({
 })
 
 require("nvim-autopairs").setup {}
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "c", "lua", "vim", "help", "typescript", "javascript", "tsx", "python" },
+  sync_install = false,
+  auto_install = false,
+  highlight = {
+    enable = true,
+  },
+}
