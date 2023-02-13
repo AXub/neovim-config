@@ -9,12 +9,78 @@ Plug 'AndrewRadev/tagalong.vim'
 Plug 'pantharshit00/vim-prisma'
 Plug 'vim-scripts/ShowPairs'
 Plug 'tpope/vim-surround'
-Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
-lua require("init")
+lua << END
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+vim.opt.laststatus = 3
+
+require("bufferline").setup{
+  highlights = {
+    fill = {
+      bg = '#23272e'
+    }
+  } 
+}
+
+require'colorizer'.setup()
+
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 30,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up",  },
+    { key = "<C-e>", action = "close" }
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
+require("nvim-autopairs").setup {}
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "c", "lua", "vim", "help", "typescript", "javascript", "tsx", "python", "toml", "json", "css", "html" },
+  sync_install = false,
+  auto_install = false,
+  highlight = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  },
+  autotag = {
+    enable = true
+  }
+}
+require('lualine').setup({
+  sections = {
+    lualine_c = {
+      {
+          'windows',
+          show_filename_only = false,
+          path = 1,
+          hide_filename_extension = false
+      }
+    }
+  },
+  extensions = {'nvim-tree'}
+})
+END
 
 let g:rainbow_active = 0
 
@@ -87,7 +153,6 @@ let g:onedark_color_overrides = {
 colorscheme onedark
 syntax on
 set t_Co=256
-set termguicolors
 set cursorline 
 
 let g:lightline = {
