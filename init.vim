@@ -12,7 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+"Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
@@ -22,13 +22,13 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.laststatus = 3
 
-require("bufferline").setup{
-  highlights = {
-    fill = {
-      bg = '#23272e'
-    }
-  } 
-}
+--require("bufferline").setup{
+--  highlights = {
+--    fill = {
+--      bg = '#23272e'
+--    }
+--  } 
+--}
 
 require'colorizer'.setup()
 
