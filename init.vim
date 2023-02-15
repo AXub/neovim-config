@@ -12,7 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 Plug 'nvim-lualine/lualine.nvim'
-"Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
@@ -22,13 +22,13 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.laststatus = 3
 
---require("bufferline").setup{
---  highlights = {
---    fill = {
---      bg = '#23272e'
---    }
---  } 
---}
+require("bufferline").setup{
+  highlights = {
+    fill = {
+      bg = '#23272e'
+    }
+  } 
+}
 
 require'colorizer'.setup()
 
@@ -130,14 +130,20 @@ imap <C-Up> <Esc>dd<Up>p<Up>a
 " Открыть конфиг
 nmap <C-A-k> :tabnew<CR>:e ~/.config/nvim/init.vim<CR> 
 
+" Открыть файлы
 nmap <c-e> :NvimTreeToggle<CR>
 
+" Управление табами
 nnoremap tn :tabnew<CR>
 nnoremap t<Right> :tabnext<CR>
 nnoremap t<Left> :tabprev<CR>
 nnoremap td :tabclose<CR>
 
 nnoremap tt :split<CR>:term<CR>i
+
+nnoremap } :bnext<CR>
+nnoremap { :bprevious<CR>
+nnoremap P :bd<CR>
 
 set splitbelow
 
